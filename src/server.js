@@ -4,13 +4,16 @@ const path = require('path');
 const mongoose = require('mongoose');
 const articlesRouter = require('./routes/articles');
 const Article = require('./models/article')
+const methodOverride = require('method-override');
 
 const PORT = 4080;
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(methodOverride('_method'))
 
 mongoose.connect('mongodb://127.0.0.1:27017/markdown-blog')
+
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'))
