@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, './views'))
 
 
 app.get('/', async (req,res) => {
-    const articles = await Article.find();
+    const articles = await Article.find().sort({createdAt: 'desc'});
     res.render('index', {articles})
 })
 
