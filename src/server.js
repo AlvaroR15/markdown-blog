@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const articlesRouter = require('./routes/articles');
-const Article = require('./models/article')
 const methodOverride = require('method-override');
+
+const router = require('./routes/index');
+const routerArticle = require('./routes/articles');
+
 
 const PORT = 4080;
 
@@ -19,12 +21,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, './views'))
 
 
-app.get('/', async (req,res) => {
-    const articles = await Article.find().sort({createdAt: 'desc'});
-    res.render('index', {articles})
-})
-
-app.use('/articles', articlesRouter);
+app.use('/', router);
+app.use('/articles', routerArticle);
 
 
 app.listen(PORT, () => {
