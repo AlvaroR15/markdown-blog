@@ -9,6 +9,9 @@ router.get('/:slug', articleController.articleShow);
 
 router.post('/save', articleController.saveArticle);
 
+router.get('/edit/:id', articleController.updateArticleView)
+
+router.put('/edit/:id', articleController.updateArticle)
 
 router.delete('/:id', articleController.deleteArticle);
 
