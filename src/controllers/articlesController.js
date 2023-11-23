@@ -9,10 +9,11 @@ const articleController = {
             const article = await Article.findOne({
                 slug: req.params.slug
             });
+            const articles = await Article.find().sort({createdAt: 'desc'});
             if (!article) {
                 return res.redirect('/')
             };
-            return res.render('../views/articles/article', {article})
+            return res.render('../views/articles/article', {article, articles})
         } catch(error) {
             console.log(error);
         }

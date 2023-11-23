@@ -1,17 +1,15 @@
-<div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" name="title" class="form-control" value="<%= article.title %>" required>
-</div>
+    <label class="" for="title">Title</label>
+    <input type="text" name="title" class="block outline-none border border-green-900 mb-4 w-72" value="<%= article.title %>" required>
 
-<div class="form-group">
-    <label for="description">Description</label>
-    <input type="text" name="description" class="form-control" value="<%= article.description %>" required>
-</div>
+    <label class="" for="description">Description</label>
+    <input type="text" name="description" class="block outline-none border border-green-900 mb-5 w-72" value="<%= article.description %>" required>
 
-<div class="form-group mb-4">
+<div class="flex flex-col">
     <label for="markdown">Markdown</label>
-    <textarea name="markdown" class="form-control" required><%= article.markdown %></textarea>
+    <textarea name="markdown" class="outline-none border border-slate-700 w-96 h-64" required><%= article.markdown %></textarea>
 </div>
 
-<a href="/" class="btn btn-secondary">Cancel</a>
-<button type="submit" class="btn btn-primary">Save</button>
+<div class="my-6">
+    <a href="/" class="inline-block bg-red-400 text-white px-3 py-1 rounded-md hover:bg-red-500 opacity-7">Cancel</a>
+    <button type="submit" class="inline-block bg-green-300 text-white px-3 py-1 rounded-md hover:bg-green-600 opacity-7">Save</button>
+</div>
