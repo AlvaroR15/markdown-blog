@@ -40,14 +40,14 @@ const articleController = {
         return res.render('../views/articles/edit', {article})
     },
     updateArticle: async(req,res) => {
-        let article = new Article({
-            title: req.body.title,
-            description: req.body.description,
-            markdown: req.body.markdown
-        });
         try {
-            article = await article.save();
-            return res.redirect('/articles/'+article.slug);
+            let article = {
+                title: req.body.title,
+                description: req.body.description,
+                markdown: req.body.markdown
+            };
+            const articleUpdate = await Article.findByIdAndUpdate(req.params.id, article, {new:true})
+            return res.redirect('/articles/'+articleUpdate.slug);
         } catch(error) {
             console.log(error);
         }

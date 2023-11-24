@@ -42,6 +42,14 @@ articleSquema.pre('validate', function(next) {
         this.sanitizedHtml = dompurify.sanitize(marked(this.markdown));
     }
     next();
+});
+
+articleSquema.pre('findOneAndUpdate', function(next) {
+    const update = this.getUpdate();
+    if(update.markdown) {
+        update.sanitizedHtml = dompurify.sanitize(marked(update.markdown));
+    };
+    next();
 })
 
 module.exports = mongoose.model('Article', articleSquema)

@@ -11,7 +11,7 @@
 <body>
     <div class="container mx-auto flex flex-col justify-center items-center">
         <h1 class="my-6 text-4xl">Edit Article</h1>
-        <form action="/articles/<%= article.id %>=PUT" method="post" class="border-2 border-gray-400 p-4 text-justify text-gray-700 rounded-md">
+        <form action="/articles/edit/<%= article.id %>?_method=PUT" method="post" class="border-2 border-gray-400 p-4 text-justify text-gray-700 rounded-md">
             <%- include('_form') %>
         </form>
     </div>
